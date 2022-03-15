@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import './App.css';
+import DisplayMMusic from './Components/DisplayMusic/DisplayMusic';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 function App(){
 
@@ -33,8 +35,13 @@ function App(){
     await getAllSongs();
   }
     return (
-      <div className="App">
-        <button onClick={() => sendSong()}>Submit</button>
+      <div>
+       <div>
+         <SearchBar />
+       </div>
+       <div>
+         <DisplayMMusic />
+       </div>
       </div>
     );
   }

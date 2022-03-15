@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import './App.css';
-import DisplayMMusic from './Components/DisplayMusic/DisplayMusic';
+import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import SearchBar from './Components/SearchBar/SearchBar';
+import NavigationBar from './Components/NavigationBar/NavigationBar';
+
 
 function App(){
 
@@ -34,13 +36,27 @@ function App(){
     console.log(responce.data)
     await getAllSongs();
   }
+
+  const filterSongs = (searchTerm) => {
+    console.log(searchTerm);
+    let matchingSongs = songs.filter((songs) => {
+      if(songs.title.toLowerCase().includes(searchTerm.toLowerCase())){
+      return true
+      }
+      else return false
+  })
+
+}
     return (
       <div>
        <div>
-         <SearchBar />
+         <NavigationBar />
        </div>
        <div>
-         <DisplayMMusic />
+         <SearchBar filterSongs={filterSongs}/>
+       </div>
+       <div>
+         <DisplayMusic songs={songs}/>
        </div>
       </div>
     );

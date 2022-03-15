@@ -14,6 +14,7 @@ const SearchBar = (props) => {
             <form onSubmit={handleSubmit}>
             <input value={searchTerm} onChange={(element) => setSearchTerm(element.target.value)} type='text' placeholder='Search our songs...'></input>
             <button type='submit'>Search!</button>
+            <button onClick={() => props.getAllSongs()}>Reset Table</button>
             </form>
         </div>
      );

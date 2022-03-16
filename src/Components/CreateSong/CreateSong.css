@@ -1,0 +1,15 @@
+.border-box {
+    width: 70%;
+    border: 1px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2.5px rgb(224, 224, 224);
+    border-style: solid;
+    border-color: black;
+    margin: auto;
+    padding: 1em;
+
+}
+
+.form-group{
+    display: inline-block;
+}

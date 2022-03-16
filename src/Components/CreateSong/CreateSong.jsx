@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import './CreateSong.css'
 
 const CreateSongForm = (props) => {
 
     const [title, setTitle] = useState(''); 
     const [album, setAlbum] = useState('');
     const [genre, setGenre] = useState('');
-    const [release_date, setReleaseDate] = useState('');
+    const [releaseDate, setReleaseDate] = useState('');
     const [artist, setArtist] = useState('');
 
     function handleSubmit(formEvent){
@@ -14,11 +15,11 @@ const CreateSongForm = (props) => {
             title: title,
             album: album,
             genre: genre,
-            release_date: release_date,
+            release_date: releaseDate,
             artist: artist,
         };
         console.log(newSong);     
-        CreateSongForm()  // calling function on app.js, sending our post data to be stored 
+        props.createSong(newSong)  // calling function on app.js, sending our post data to be stored 
     }
 
     return ( 
@@ -27,37 +28,37 @@ const CreateSongForm = (props) => {
     
             <form onSubmit={handleSubmit}>
                 <div className='border-box'>
-                    <div className='form-group row'>
+                    <div className='form-group'>
                         <label htmlFor='input name' className='col-sm-1 col-form-label'> Title</label>
                         <div className='col-sm-10'>                
                             <input type='text' onChange={(event) => setTitle(event.target.value)} value={title}/>    {/*  sending data to hook on line 5 */}
                         </div>
-                    </div>
-                    <div className='form-group row'>
+                        </div>
+                    <div className='form-group'>
                         <label htmlFor='input name' className='col-sm-1 col-form-label'> Album</label>
                         <div className='col-sm-10'>                
                             <input type='text' onChange={(event) => setAlbum(event.target.value)} value={album}/>    {/*  sending data to hook on line 5 */}
                         </div>
                     </div>
-                    <div className='form-group row'>
+                    <div className='form-group'>
                         <label htmlFor='input name' className='col-sm-1 col-form-label'> Genre</label>
                         <div className='col-sm-10'>                
                             <input type='text' onChange={(event) => setGenre(event.target.value)} value={genre}/>    {/*  sending data to hook on line 5 */}
                         </div>
                     </div>
-                    <div className='form-group row'>
+                    <div className='form-group'>
                         <label htmlFor='input name' className='col-sm-1 col-form-label'> Release Date</label>
                         <div className='col-sm-10'>                
-                            <input type='date' onChange={(event) => setReleaseDate(event.target.value)} value={release_date}/>    {/*  sending data to hook on line 5 */}
+                            <input type='date' onChange={(event) => setReleaseDate(event.target.value)} value={releaseDate}/>    {/*  sending data to hook on line 5 */}
                         </div>
                     </div>
-                    <div className='form-group row'>
+                    <div className='form-group'>
                         <label htmlFor='input name' className='col-sm-1 col-form-label'> Artist</label>
                         <div className='col-sm-10'>                
                             <input type='text' onChange={(event) => setArtist(event.target.value)} value={artist}/>    {/*  sending data to hook on line 5 */}
                         </div>
                     </div>
-                    <div className="form-group row">
+                    <div className='form-group'>
                         <div className="col-sm-10">
                             <button type="submit" className="btn btn-primary">Create Song</button>
                         </div>

@@ -53,13 +53,13 @@ function App(){
          <NavigationBar />
        </div>
        <div>
+         <DisplayMusic songs={songs}/>
+       </div>
+       <div>
          <SearchBar filterSongs={filterSongs} getAllSongs={getAllSongs}/>
        </div>
        <div>
          <CreateSong createSong={createSong}/>
-       </div>
-       <div>
-         <DisplayMusic songs={songs}/>
        </div>
       </div>
     );
